@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://kit.fontawesome.com/00e7d0c3e8.js"></script>
+    <script src="login.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 68vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            font-family: sans-serif;
+        }
+        .containerLogin{
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .containerLogin .cardLogin{
+            width: 30%;
+            height: 20%;
+            padding: 50px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+        }
+        .formLogin{
+            width: 100%;
+            position: relative;
+            height: 50px;
+            overflow: hidden;
+        }
+        .formLogin input{
+            width: 1000px;
+            height: 100%;
+            color: #595f6e;
+            padding-top: 20px;
+            border: none;
+            outline: none;
+        }
+        .formLogin label{
+            position: absolute;
+            bottom: -2px;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-bottom: 1px solid black;
+        }
+        .formLogin label::after{
+            content: '';
+            position: absolute;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            border-bottom: 3px solid #5fa8d3;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .contentLogin-name{
+            position: absolute;
+            bottom: 5px;
+            left: 0px;
+            transition: all 0.3s ease;
+        }
+        .formLogin input:focus + .labelLogin-name .contentLogin-name,
+        .formLogin input:valid + .labelLogin-name .contentLogin-name{
+            transform: translateY(-95%);
+            font-size: 14px;
+            color: #5fa8d3;
+        }
+        .formLogin input:focus + .labelLogin-name::after, .formLogin input:valid + .labelLogin-name::after{
+            transform: translateX(0%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="containerLogin">
+        <div class="cardLogin">
+            <h1>Login</h1>
+        
+            <div class="formLogin">
+                <input type="text" id="userid" name="userid" autocomplete="off" required>
+                <label for="userid"  class="labelLogin-name">
+                    <span class="contentLogin-name" >User ID</span>
+                </label>
+            </div>
+            <div class="formLogin">
+                <input type="password" id="password" name="password" autocomplete="off" required>
+                <label for="password" class="labelLogin-name">
+                    <span class="contentLogin-name" >Password</span>
+                </label>
+            </div>
+            <button class="btn btn-secondary" id="btnLogin" >Login</button>
+        </div>
+    </div>
+</body>
+</html>
+

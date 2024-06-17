@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DEMO FORM</title> <!-- Membuat Title Halaman Web -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>FORM PENDAFTARAN</h1> <!-- Membuat Header Title -->
+        <form action="servlet" method="POST">  
+            <!-- Tag Form membuat bungkus untuk form dengan pengelola datanya adalah servlet 
+                    dan method untuk protokol pengiriman datanya POST -->
+            <Fieldset>
+                <Label for="username">Username</label> <!-- Membuat label sebagai jugul dari input -->
+                <input name="username" type="text" placeholder="Username" /> <br> <!-- Membuat Form Inputan dengan type text -->
+            </fieldset>
+            <fieldset>
+                <Label for="password">Password</label>
+                <input name="password" type="password" placeholder="Password" /> <br> <!-- Membuat form inputan dengan type password -->
+            </Fieldset>  
+            <input name="submit" type="submit" value="LOGIN"/> <!-- Membuat inputan yang berupa trigger tombol jika di klik -->
+	</form>
+    </body>
+</html>

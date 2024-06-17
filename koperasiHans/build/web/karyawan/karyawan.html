@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Karyawan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="karyawan.js"></script>
+    </head>
+    <body>
+        <div class="container">
+        <div class="row container-fluid" style="background-color: aqua; height: 80px">
+    </div>
+    <div class="row rounded container-fluid bg-dark" style="height: 36px">
+        <div class="col col-sm-6 float-left">
+            <h4 style="color: #ffffff">Data Karyawan</h4>
+        </div>    
+        <div class="col float-lg-right">
+            <div class="dropdwon dropright float-right" style="margin-right: 0%">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark btn-sm" id="btnKembali">Kembali Ke Menu</button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-dark btn-sm" id="btnLogout">Logout</button>
+    </div>
+            </div>
+        </div>
+    </div>
+            <div class="container-fluid" style="height: 10px"></div>
+            <div class="row container">
+                <div class="col float-none">
+                    <table class="table table-success table-hover table-borderless" id="tabelkaryawan">
+                        <thead>
+                        <th scope="col">NIK</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jns. Kelamin</th>
+                        <th scope="col">Tmp. Lahir</th>
+                        <th scope="col">Tgl. Lahir</th>
+                        <th scope="col">Telepon</th>
+                        <th class="float-right">
+                            <a class='btn btn-outline-dark btn-sm' id='btnAdd'
+                                data-toggle='modal' data-target='#'>
+                                &nbsp;&nbsp;&nbsp; Tambah &nbsp;&nbsp;&nbsp;       
+                            </a></th>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        <th scope="col">NIK</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jns. Kelamin</th>
+                        <th scope="col">Tmp. Lahir</th>
+                        <th scope="col">Tgl. Lahir</th>
+                        <th scope="col">Telepon</th>
+                        <th></th>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

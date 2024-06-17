@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script src="https://kit.fontawesome.com/00e7d0c3e8.js"></script>
+        <script src="user.js"></script>
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: #fafafa;
+            }
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.1em;
+                font-weight: 300;
+                line-height: 1.7em;
+                color: #999;
+            }
+
+            a,
+            a:hover,
+            a:focus {
+                color: inherit;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+            .navbar {
+                padding: 15px 10px;
+                background: #fff;
+                border: none;
+                border-radius: 0;
+                margin-bottom: 40px;
+                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-btn {
+                box-shadow: none;
+                outline: none !important;
+                border: none;
+            }
+
+            .line {
+                width: 100%;
+                height: 1px;
+                border-bottom: 1px dashed #ddd;
+                margin: 40px 0;
+            }
+
+            i,
+            span {
+                display: inline-block;
+            }
+
+            .wrapper {
+                display: flex;
+                align-items: stretch;
+            }
+
+            #sidebar {
+                min-width: 250px;
+                max-width: 250px;
+                background: #7386D5;
+                color: #fff;
+                transition: all 0.3s;
+            }
+
+            #sidebar.active {
+                min-width: 80px;
+                max-width: 80px;
+                text-align: center;
+            }
+
+            #sidebar.active .sidebar-header h3,
+            #sidebar.active .CTAs {
+                display: none;
+            }
+
+            #sidebar.active .sidebar-header strong {
+                display: block;
+            }
+
+            #sidebar ul li a {
+                text-align: left;
+            }
+
+            #sidebar.active ul li a {
+                padding: 20px 10px;
+                text-align: center;
+                font-size: 0.85em;
+            }
+
+            #sidebar.active ul li a i {
+                margin-right: 0;
+                display: block;
+                font-size: 1.8em;
+                margin-bottom: 5px;
+            }
+
+            #sidebar.active ul ul a {
+                padding: 10px !important;
+            }
+
+            #sidebar.active .dropdown-toggle::after {
+                top: auto;
+                bottom: 10px;
+                right: 50%;
+                -webkit-transform: translateX(50%);
+                -ms-transform: translateX(50%);
+                transform: translateX(50%);
+            }
+
+            #sidebar .sidebar-header {
+                padding: 20px;
+                background: #6d7fcc;
+            }
+
+            #sidebar .sidebar-header strong {
+                display: none;
+                font-size: 1.8em;
+            }
+
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
+
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
+
+            #sidebar ul li a:hover {
+                color: #7386D5;
+                background: #fff;
+            }
+
+            #sidebar ul li a i {
+                margin-right: 10px;
+            }
+
+            #sidebar ul li.active>a,
+            a[aria-expanded="true"] {
+                color: #fff;
+                background: #6d7fcc;
+            }
+
+            a[data-toggle="collapse"] {
+                position: relative;
+            }
+
+            .dropdown-toggle::after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+            }
+
+            ul ul a {
+                font-size: 0.9em !important;
+                padding-left: 30px !important;
+                background: #6d7fcc;
+            }
+
+            ul.CTAs {
+                padding: 20px;
+            }
+
+            ul.CTAs a {
+                text-align: center;
+                font-size: 0.9em !important;
+                display: block;
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+
+            a.download {
+                background: #fff;
+                color: #7386D5;
+            }
+
+            a.article,
+            a.article:hover {
+                background: #6d7fcc !important;
+                color: #fff !important;
+            }
+
+            /* ---------------------------------------------------
+                CONTENT STYLE
+            ----------------------------------------------------- */
+
+            #content {
+                width: 100%;
+                padding: 20px;
+                min-height: 100vh;
+                transition: all 0.3s;
+            }
+            
+            #action{
+                width: 100px;
+            }
+            #nama{
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper" id="karyawan">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Sistem Koperasi</h3>
+                    <strong>SK</strong>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li>
+                        <a id="backHome" href="#">
+                            Home
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarBuka" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span>Toggle Sidebar</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+                    </div>
+                </nav>
+                <h1 class="mb-2">Data Pinjaman</h1>
+                  <div class="container-fluid" style="height: 10px;"></div>
+                    <div class="row">
+                        <div class="col float-none">
+                            <table class="table table-success table-hover table-borderless" id="tabeluser">
+                                <thead>
+                                    <th scope="col">User id</th>
+                                    <th scope="col">nik</th>
+                                    <th scope="col">Nama Karyawan</th>
+                                    <th scope="col">Level</th>
+                                    <th scope="col">Aktif</th>
+                                    <th id="action" class="float-right">
+                                        <a class="btn btn-outline-dark btn-sm" id="btnAdd" data-toggle="modal" data-target="#">&nbsp;&nbsp;&nbsp Tambah &nbsp;&nbsp;&nbsp;</a>
+                                    </th>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                    <th scope="col">User id</th>
+                                    <th scope="col">nik</th>
+                                    <th scope="col">Nama Karyawan</th>
+                                    <th scope="col">Level</th>
+                                    <th scope="col">Aktif</th>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <div class="modal" id="myModal">
+        <div class="modal-dialog container modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <font style="color: #FFFFFF">
+                        <h4 id="title-modal" class="modal-title mb-3">Tambah Data</h4>
+                    </font>
+                </div>
+                <div class="modal-body modal-lg">
+                    <div class="container-fluid"> 
+                        <div class="form-group row">
+                            <label for="userid" class="col-sm-2 col-form-label">User Id</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" id="userid" placeholder="User Id" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="nik" class="col-sm-2 col-form-label">Nik</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" id="nik" placeholder="Nik" autocomplete="off">
+                            </div>
+                                <button class="btn btn-primary" id="lookupnik">Lookup</button>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control-plaintext" id="nama" readonly placeholder="Nama Karyawan">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" required id="password" placeholder="Password" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                            <div class="col-sm-4">
+                                <input type="password" required class="form-control" placeholder="Confirm Password" id="confirmpassword" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="level" class="col-sm-2 col-form-label">Level</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="level">
+                                    <option value="" selected disabled>--*--</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Operator">Operator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="aktif" class="col-sm-2 col-form-label">Aktif</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="aktif">
+                                    <option value="" selected disabled>--*--</option>
+                                    <option value="Y">Ya</option>
+                                    <option value="T">Tidak</option>
+                                </select>                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnSave">Simpan</button>
+                        <button class="btn btn-primary" type="button" id="submitEdit">Edit</button>
+                        <button type="button" class="btn btn-danger" id="btnCancel">&nbsp;Batal&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="modal" id="lookupmodal">
+        <div class="modal-dialog container modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h4 class="modal-title" data-toggle="modal" id="title-lookup">Nama Anggota</h4>
+                </div>
+                <div class="modal-body modal-lg">
+                    <div class="container-fluid">                    
+                        <table class="table table-secondary table-hover table-borderless" id="tabellookup">
+                            <thead>
+                                <th id="header1" scope="col">Nomor Angota</th>
+                                <th id="header2" scope="col">Nama Anggota</th>
+                                <th scope="col">Action</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <button class="btn btn-danger" type="button" id="btnBackLookup">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="modal" id="lookupmodal">
+        <div class="modal-dialog container modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h4 class="modal-title" data-toggle="modal" id="title-lookup">Nama karyawan</h4>
+                </div>
+                <div class="modal-body modal-lg">
+                    <div class="container-fluid">                    
+                        <table class="table table-secondary table-hover table-borderless" id="tabellookup">
+                            <thead>
+                                <th id="header1" scope="col">NIK</th>
+                                <th id="header2" scope="col">Nama Karyawan</th>
+                                <th scope="col">Action</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <button class="btn btn-danger" type="button" id="btnBack">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    </body>
+</html>
