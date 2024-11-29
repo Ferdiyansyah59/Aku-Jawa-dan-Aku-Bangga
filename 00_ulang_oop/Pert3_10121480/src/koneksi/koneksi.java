@@ -7,10 +7,6 @@ package koneksi;
 
 import java.sql.*;
 
-/**
- *
- * @author ferdi
- */
 
 public class koneksi {
     static Connection con;
@@ -34,3 +30,7 @@ public class koneksi {
         connection();
     }
 }
+
+
+
+

@@ -93,26 +93,20 @@ public class httpGet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_connectActionPerformed
-       JOptionPane.showMessageDialog(null, evt);
-       
-       try{
-           URL url = new URL(Txt_url.getText());
-           HttpURLConnection con = (HttpURLConnection) url.openConnection();
-           
-           JOptionPane.showMessageDialog(null, 
-                   "Server Response. Response Code : " + con.getResponseCode());
-           
-           BufferedReader in = new 
-                            BufferedReader(new InputStreamReader(con.getInputStream()));
-           
-           String line;
-           while ((line = in.readLine()) != null)
-               Txt_response.append(line+"\n");
-           in.close();
-           con.disconnect();
-       }catch(Exception e){
-           System.err.println(e);
-       }
+        JOptionPane.showMessageDialog(null, "Connecting...");
+        try{
+            URL url = new URL(Txt_url.getText());
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            JOptionPane.showMessageDialog(null, "Server Response. Response Code : "+con.getResponseCode());
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String line;
+        while((line = in.readLine())!= null)
+            Txt_response.append(line+"\n");
+            in.close();
+            con.disconnect();
+        }catch(Exception e){
+            System.err.println(e);
+        }
        
     }//GEN-LAST:event_Btn_connectActionPerformed
 

@@ -17,6 +17,7 @@ public class Senjata implements OpsiSenjata{
         this.pelor = pelor;
     }
     
+    @Override
     public void tembakSenjata(){
         if (pelor != 0){
             System.out.println("dor..dor..dor..");
